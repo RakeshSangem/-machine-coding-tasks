@@ -38,42 +38,40 @@ export default function Todolist() {
         />
         <button type="submit">Add</button>
       </form>
-
+      <h5>todos</h5>
       <ul
         style={{
-          padding: 10,
           listStyle: 'none',
         }}
       >
         {tasks.map((task) => {
           return (
-            <span
+            <li
               key={task.id}
               style={{
                 display: 'flex',
-                gap: 10,
+                alignItems: 'center',
+                gap: 20,
               }}
             >
-              <li>
-                <span
-                  style={{
-                    fontSize: 12,
-                    margin: 10,
-                  }}
-                >
-                  {task.id}
-                </span>
-                {task.text}
-                <button
-                  style={{
-                    margin: 10,
-                  }}
-                  onClick={() => deleteTodo(task)}
-                >
-                  remove
-                </button>
-              </li>
-            </span>
+              <span
+                style={{
+                  fontSize: 12,
+                  margin: 10,
+                }}
+              >
+                {task.id}
+              </span>
+              {task.text}
+              <button
+                style={{
+                  margin: 10,
+                }}
+                onClick={() => deleteTodo(task)}
+              >
+                remove
+              </button>
+            </li>
           );
         })}
       </ul>

@@ -18,7 +18,13 @@ export default function Todolist() {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        borderStyle: 'dashed',
+        padding: 30,
+        borderRadius: 10,
+      }}
+    >
       <h1>Todolist</h1>
       <form
         style={{
@@ -44,36 +50,46 @@ export default function Todolist() {
           listStyle: 'none',
         }}
       >
-        {tasks.map((task) => {
-          return (
-            <li
-              key={task.id}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 20,
-              }}
-            >
-              <span
+        {tasks.length !== 0 ? (
+          tasks.map((task) => {
+            return (
+              <li
+                key={task.id}
                 style={{
-                  fontSize: 12,
-                  margin: 10,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 20,
                 }}
               >
-                {task.id}
-              </span>
-              {task.text}
-              <button
-                style={{
-                  margin: 10,
-                }}
-                onClick={() => deleteTodo(task)}
-              >
-                remove
-              </button>
-            </li>
-          );
-        })}
+                <span
+                  style={{
+                    fontSize: 12,
+                    margin: 10,
+                  }}
+                >
+                  {task.id}
+                </span>
+                {task.text}
+                <button
+                  style={{
+                    margin: 10,
+                  }}
+                  onClick={() => deleteTodo(task)}
+                >
+                  remove
+                </button>
+              </li>
+            );
+          })
+        ) : (
+          <p
+            style={{
+              padding: 10,
+            }}
+          >
+            You have no todos
+          </p>
+        )}
       </ul>
     </div>
   );

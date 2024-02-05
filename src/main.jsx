@@ -4,6 +4,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './index.css';
 import Todolist from './todolist/Todolist.jsx';
 import Counter from './counter/Counter.jsx';
+import Debounce from './debounce/Debounce.jsx';
 import App from './App.jsx';
 
 const router = createBrowserRouter([
@@ -11,8 +12,18 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
   },
-  { path: '/counter', element: <Counter /> },
-  { path: '/todolist', element: <Todolist /> },
+  {
+    path: '/counter',
+    element: <Counter />,
+  },
+  {
+    path: '/todolist',
+    element: <Todolist />,
+  },
+  {
+    path: '/debounce',
+    element: <Debounce />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

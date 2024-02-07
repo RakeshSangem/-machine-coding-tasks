@@ -1,6 +1,16 @@
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { ThemeContext } from './context/ThemeContext.tsx';
 
 export default function App() {
+  const { theme, setTheme } = useContext(ThemeContext);
+
+  console.log('theme', theme);
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
+
   return (
     <div>
       <h1
@@ -39,6 +49,7 @@ export default function App() {
             </Link>
           </li>
         </ul>
+        <button onClick={toggleTheme}>Change Theme</button>
       </div>
     </div>
   );
